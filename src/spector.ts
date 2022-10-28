@@ -39,7 +39,7 @@ export class Spector {
     }
 
     private static tryGetContextFromHelperField(canvas: HTMLCanvasElement | OffscreenCanvas): WebGLRenderingContexts {
-        const type: string|void = canvas instanceof HTMLCanvasElement ?
+        const type: string | void = canvas instanceof HTMLCanvasElement ?
             canvas.getAttribute("__spector_context_type") :
             (canvas as IAnnotatedOffscreenCanvas).__spector_context_type;
 
@@ -133,9 +133,9 @@ export class Spector {
         }
     }
 
-    public getResultUI(): ResultView {
+    public getResultUI(rootPlaceHolder: Element = null): ResultView {
         if (!this.resultView) {
-            this.resultView = new ResultView();
+            this.resultView = new ResultView(rootPlaceHolder);
             this.resultView.onSourceCodeChanged.add((sourceCodeEvent) => {
                 this.rebuildProgramFromProgramId(sourceCodeEvent.programId,
                     sourceCodeEvent.sourceVertex,
