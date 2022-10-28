@@ -78,13 +78,7 @@ export class ResultView {
 
     constructor(private readonly rootPlaceHolder: Element = null) {
         this.onSourceCodeChanged = new Observable();
-
-        const newTab = window.open();
-
-        // this.rootPlaceHolder = rootPlaceHolder || document.body;
-
-        this.rootPlaceHolder = newTab.document.body;
-
+        this.rootPlaceHolder = rootPlaceHolder || document.body;
         this.mvx = new MVX(this.rootPlaceHolder);
 
         this.searchText = "";

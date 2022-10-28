@@ -1,6 +1,6 @@
 {
   "name": "phaser3spectorjs",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Explore and Troubleshoot your WebGL scenes easily. Based on SpectorJS 0.9.28",
   "keywords": [
     "webgl",
