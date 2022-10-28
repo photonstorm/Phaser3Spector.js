@@ -79,9 +79,11 @@ export class ResultView {
     constructor(private readonly rootPlaceHolder: Element = null) {
         this.onSourceCodeChanged = new Observable();
 
-        this.rootPlaceHolder = rootPlaceHolder || document.body;
+        const newTab = window.open();
 
-        console.log(rootPlaceHolder, this.rootPlaceHolder);
+        // this.rootPlaceHolder = rootPlaceHolder || document.body;
+
+        this.rootPlaceHolder = newTab.document.body;
 
         this.mvx = new MVX(this.rootPlaceHolder);
 
@@ -222,9 +224,13 @@ export class ResultView {
         this.displayCurrentCommand();
     }
 
-    public display(): void {
+    public display(capture?: ICapture): void {
         this.visible = true;
         this.updateViewState();
+
+        if (capture) {
+            this.addCapture(capture);
+        }
     }
 
     public hide(): void {
@@ -233,13 +239,12 @@ export class ResultView {
     }
 
     public addCapture(capture: ICapture): number {
-        const captureSateId = this.mvx.insertChildState(this.captureListStateId, {
+        const captureStateId = this.mvx.insertChildState(this.captureListStateId, {
             capture,
             active: false,
-        },
-            0, this.captureListItemComponent);
-        this.selectCapture(captureSateId);
-        return captureSateId;
+        }, 0, this.captureListItemComponent);
+        this.selectCapture(captureStateId);
+        return captureStateId;
     }
 
     public showSourceCodeError(error: string): void {
