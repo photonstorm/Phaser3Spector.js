@@ -30,6 +30,8 @@ export class ContextSpy {
         "drawingBufferWidth",
         "drawingBufferHeight",
         "glp", // WebGl Insight internal method.
+        "drawingBufferColorSpace",
+        "unpackColorSpace"
     ];
 
     public readonly context: WebGLRenderingContexts;

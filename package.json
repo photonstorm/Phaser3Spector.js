@@ -1,6 +1,6 @@
 {
   "name": "phaser3spectorjs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Explore and Troubleshoot your WebGL scenes easily. Based on SpectorJS 0.9.28",
   "keywords": [
     "webgl",
@@ -31,6 +31,7 @@
     "build:concatBundleFunc": "concat-cli -f tools/spector.ext.header.js dist/spector.bundle.js tools/spector.ext.footer.js -o extensions/spector.bundle.func.js",
     "build:tslint": "tslint -c ./tslint.json -p ./src/tsconfig.json",
     "build": "run-s build:tslint build:bundle build:copybuild:copy:bundle build:concatBundleFunc -n",
+    "devbuild": "run-s build:bundle build:copybuild:copy:bundle build:concatBundleFunc -n",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
