@@ -80,6 +80,9 @@ export class ResultView {
         this.onSourceCodeChanged = new Observable();
 
         this.rootPlaceHolder = rootPlaceHolder || document.body;
+
+        console.log(rootPlaceHolder, this.rootPlaceHolder);
+
         this.mvx = new MVX(this.rootPlaceHolder);
 
         this.searchText = "";
